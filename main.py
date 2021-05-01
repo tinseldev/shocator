@@ -3,6 +3,8 @@
 
 import arrow
 import os
+import shutil
+import glob
 import tqdm
 import base64
 import shodan
@@ -14,11 +16,11 @@ import telegram
 
 # Settings
 ############################################################
-SHODAN_API_KEY = ''
+SHODAN_API_KEY = 'KOllTMXB4soCYaVyh7IJhENkr3ZZelfd'
 
-BOT_TOKEN = ''
+BOT_TOKEN = '1499789509:AAFo2WS2cam2U9IMvH8zFtWhnH4ktVh5B4Q'
 
-ROOM_ID = ''
+ROOM_ID = '-1001146754568'
 
 SNAPS_MIN = 7  # The minimum number of snapshots to create a time-lapse
 
@@ -113,7 +115,9 @@ while True:
                               f'-loop 0 +dither -colors 256 -depth 8 '
                               f'snapshots/{ip}.gif')
                     # Clean up the temporary files
-                    os.system('rm -f snapshots/tmp/gif-image-*.jpg')
+                    files = glob.glob('snapshots/tmp/gif-image-*.jpg')
+                    for f in files:
+                        os.remove(f)
                     pbar.update(1)
                     pbar.write(f'GIF created for {ip}')
                 else:
@@ -141,4 +145,4 @@ while True:
         else:
             continue
     pbar.close()
-    os.system('rm -r snapshots')
+    shutil.rmtree('snapshots')
