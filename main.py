@@ -16,11 +16,11 @@ import telegram
 
 # Settings
 ############################################################
-SHODAN_API_KEY = 'KOllTMXB4soCYaVyh7IJhENkr3ZZelfd'
+SHODAN_API_KEY = ''
 
-BOT_TOKEN = '1499789509:AAFo2WS2cam2U9IMvH8zFtWhnH4ktVh5B4Q'
+BOT_TOKEN = ''
 
-ROOM_ID = '-1001146754568'
+ROOM_ID = ''
 
 SNAPS_MIN = 7  # The minimum number of snapshots to create a time-lapse
 
